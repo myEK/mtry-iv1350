@@ -28,8 +28,8 @@ public class VaraLista {
         this.moms = 0;
         for (int i = 0; i < vara.length; i++) {
             this.vara[i] = new Vara(vara[i]);
-            this.pris += vara[i].getPris();
-            this.moms += (vara[i].getPris() * vara[i].getmomsProcent() / 100);
+            this.pris += vara[i].getPris() * listVara[i].getAntal();
+            this.moms += (vara[i].getPris()  * listVara[i].getAntal() * vara[i].getmomsProcent() / 100);
         }
     }
 
@@ -44,11 +44,24 @@ public class VaraLista {
         for (i = 0; i < this.vara.length; i++)
             listVara[i] = this.vara[i];
         listVara[i] = new Vara(varaNy);
-        this.pris += listVara[i].getPris();
-        this.moms += (listVara[i].getPris() * listVara[i].getmomsProcent() / 100);
+        this.pris += (listVara[i].getPris() * listVara[i].getAntal();
+        this.moms += (listVara[i].getPris() * listVara[i].getAntal() * listVara[i].getmomsProcent() / 100);
         this.vara = listVara;
     }
+                      
+    /**
+     * uppdaterar priset vid fler registrerade varor
+     * 
+     * @param vara
+     * @param antal
+     */
+    public void setPris(Vara vara, int antal) {
+        this.pris = this.pris + (vara.getPris() * antal);
+        this.moms = this.moms + (vara.getPris() * antal * vara.getmomsProcent() / 100);
 
+    }
+                      
+                      
     /**
      * Registrerar hur många inregistrerae olika varor (ID)
      * 
@@ -75,7 +88,7 @@ public class VaraLista {
      */
     public double getPris() {
         return this.pris;
-    }
+    }                   
 
     /**
      * Retuerar momsen på köpet
