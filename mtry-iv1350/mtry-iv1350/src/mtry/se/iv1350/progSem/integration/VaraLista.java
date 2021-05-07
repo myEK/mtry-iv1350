@@ -55,9 +55,9 @@ public class VaraLista {
      * @param vara
      * @param antal
      */
-    public void setPris(Vara vara, int antal) {
-        this.pris = this.pris + (vara.getPris() * antal);
-        this.moms = this.moms + (vara.getPris() * antal * vara.getmomsProcent() / 100);
+    public void setPris(Vara vara) {
+        this.pris = this.pris + (vara.getPris() * vara.getAntal());
+        this.moms = this.moms + (vara.getPris() * vara.getAntal() * vara.getmomsProcent() / 100);
 
     }
                       
