@@ -62,7 +62,7 @@ public class SailDTO {
         int antal = sailVaror.getVara(nr).getAntal();
         antal = antal + nyVara.getAntal();
         sailVaror.getVara(nr).setAntal(antal);
-        sailVaror.setPris(vara);
+        sailVaror.setPris(nyVara);
     }
 
     /**
